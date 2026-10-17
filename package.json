@@ -28,7 +28,7 @@
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "bin": {
-    "unity-gamedev-kit-bootstrap": "./bin/bootstrap.mjs"
+    "unity-gamedev-kit-bootstrap": "bin/bootstrap.mjs"
   },
   "files": [
     "dist",
