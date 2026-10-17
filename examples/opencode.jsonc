@@ -1,0 +1,18 @@
+// Minimal OpenCode V2 config for a Unity project using this plugin.
+// The plugin registers the unity and context7 MCP servers, the commands and the skills itself.
+{
+  "$schema": "https://opencode.ai/config.json",
+  "plugins": [
+    {
+      "package": "@heretek-ai/unity.gamedev.kit",
+      "options": {
+        // "unityHubPath": "C:/Program Files/Unity Hub/Unity Hub.exe",
+        // "installOperatorHelper": false
+      }
+    }
+  ],
+  "instructions": ["AGENTS.md", "openspec/config.yaml"],
+  "watcher": {
+    "ignore": ["Library/**", "Temp/**", "Obj/**", "Logs/**", "UserSettings/**", "Build/**", "Builds/**", "*.csproj", "*.sln"]
+  }
+}
