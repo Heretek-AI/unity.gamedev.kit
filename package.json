@@ -1,0 +1,61 @@
+{
+  "name": "@heretek-ai/unity.gamedev.kit",
+  "version": "0.1.0",
+  "description": "OpenCode plugin for Unity game development: AnkleBreaker Unity MCP, Context7, OpenSpec workflow, gamedev skill bootstrap and Unity-safe edit guards.",
+  "type": "module",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Heretek-AI/unity.gamedev.kit.git"
+  },
+  "homepage": "https://github.com/Heretek-AI/unity.gamedev.kit#readme",
+  "bugs": "https://github.com/Heretek-AI/unity.gamedev.kit/issues",
+  "keywords": [
+    "opencode",
+    "opencode-plugin",
+    "unity",
+    "gamedev",
+    "mcp",
+    "openspec"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "bin": {
+    "unity-gamedev-kit-bootstrap": "./bin/bootstrap.mjs"
+  },
+  "files": [
+    "dist",
+    "bin",
+    "skills",
+    "server.js",
+    "README.md",
+    "LICENSE.md"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit",
+    "test": "npm run build && node --test test/*.test.mjs",
+    "prepublishOnly": "npm run typecheck && npm test",
+    "prepare": "npm run build"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@opencode-ai/plugin": "1.19.3",
+    "@opencode/plugin": "2.0.32",
+    "@types/node": "22.20.5",
+    "effect": "4.0.1",
+    "typescript": "5.8.3"
+  }
+}
