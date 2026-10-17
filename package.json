@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "OpenCode plugin for Unity game development: AnkleBreaker Unity MCP, Context7, OpenSpec workflow, gamedev skill bootstrap and Unity-safe edit guards.",
   "type": "module",
-  "license": "SEE LICENSE IN LICENSE.md",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Heretek-AI/unity.gamedev.kit.git"

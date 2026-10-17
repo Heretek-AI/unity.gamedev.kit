@@ -101,10 +101,12 @@ npm test        # builds to dist/ and runs the tests
 
 ## Publish
 
-The package publishes from GitHub Actions when a GitHub release is published (`.github/workflows/publish.yml`).
+Releases publish from GitHub Actions with [npm trusted publishing](https://docs.npmjs.com/trusted-publishers) (OIDC), so no npm token is stored in the repository. `.github/workflows/publish.yml` runs when a GitHub release is published.
 
-1. On npmjs.com, make sure the `heretek-ai` organization exists and your account can publish to it.
-2. Create an npm **granular access token** with read and write access to `@heretek-ai` packages, and add it to this repository as the `NPM_TOKEN` Actions secret.
-3. Bump `version` in `package.json`, merge, then publish a GitHub release tagged `v<version>`.
+One-time setup:
 
-To publish by hand instead: `npm login`, then `npm publish` from a clean checkout. It runs the typecheck and tests first.
+1. The first version has to exist on npm before a trusted publisher can be attached. From a clean checkout: `npm login`, then `npm publish` (it runs the typecheck and tests first). Your npm account needs publish rights in the `heretek-ai` organization.
+2. On npmjs.com, open the package's **Settings > Trusted publishing**, choose **GitHub Actions**, and enter organization `Heretek-AI`, repository `unity.gamedev.kit`, workflow `publish.yml`.
+3. Optionally, in the same settings page, set **Publishing access** to require 2FA and disallow tokens, so only the workflow can publish.
+
+Each release after that: bump `version` in `package.json`, merge, then publish a GitHub release tagged `v<version>`.
